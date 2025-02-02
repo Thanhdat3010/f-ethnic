@@ -142,10 +142,14 @@ const EthnicGroupsShowcase = () => {
         <div className="row justify-content-center">
           {groupsToShow.length > 0 ? (
             groupsToShow.map((group) => {
-              const imgSrc = process.env.PUBLIC_URL + 'ethnic/' + group.image;
+              const imgSrc = process.env.PUBLIC_URL + '/ethnic/' + group.image;
               return (
                 <div key={group.id} className="col-4 col-sm-3 col-md-2 text-center mb-4">
-                  <Link className="routes_ethnic" to={`/ethnic-group/${group.id}`}>
+                  <Link 
+                    className="routes_ethnic" 
+                    to={`/ethnic-group/${group.id}`}
+                    style={{ textDecoration: 'none' }}
+                  >
                     <div 
                       className="mx-auto"
                       style={{
@@ -155,9 +159,15 @@ const EthnicGroupsShowcase = () => {
                         backgroundImage: `url(${imgSrc})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
+                        transition: 'transform 0.3s ease',
+                        cursor: 'pointer'
                       }}
+                      onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                      onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     ></div>
-                    <p className="mt-2 fw-bold" style={{ fontSize: '0.9rem' }}>{group.name}</p>
+                    <p className="mt-2 fw-bold" style={{ fontSize: '0.9rem', color: '#333' }}>
+                      {group.name}
+                    </p>
                   </Link>
                 </div>
               );

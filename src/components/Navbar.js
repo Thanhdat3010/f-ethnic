@@ -18,7 +18,7 @@ const MultiLevelNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="menu">
           <Nav className="me-auto custom-nav">
-            <Nav.Link href="#Home">TRANG CHỦ</Nav.Link>
+            <Nav.Link href="/">TRANG CHỦ</Nav.Link>
             <NavDropdown title="KHÁM PHÁ VĂN HÓA" id="culture-dropdown" className="dropdown-box">
               <NavDropdown.Item className="dropdown-item" href="/EthnicGroupsShowcase">54 Sắc tộc</NavDropdown.Item>
               <NavDropdown.Item className="dropdown-item" href="#">Không gian văn hóa</NavDropdown.Item>
