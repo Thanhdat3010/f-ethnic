@@ -1,12 +1,163 @@
-/* .ethnic-info-container {
+.ethnic-info-container {
+  background: linear-gradient(145deg, #fff6e5, #fff0e0);
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
 
-  } 
-  
-  /* Container cho hình ảnh */
-  .image-container {
-    overflow: hidden;
+.back-link {
+  padding: 1rem 0;
+}
+
+.ethnic-content-wrapper {
+  padding: 2rem 0;
+}
+
+/* Avatar styling */
+.avatar-group {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.avatar-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin: 0 auto;
+}
+
+.avatar-circle.primary {
+  z-index: 2;
+}
+
+.avatar-circle.secondary {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, 20%);
+  z-index: 1;
+}
+
+.avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ethnic-name {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.ethnic-name h4 {
+  color: #666;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.ethnic-name h1 {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Information styling */
+.ethnic-info {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .label {
+  font-weight: bold;
+  color: #666;
+  min-width: 150px;
+  flex-shrink: 0;
+}
+
+.info-row .value {
+  color: #333;
+  flex-grow: 1;
+}
+
+.info-row.history {
+  display: block;
+  margin-top: 2rem;
+}
+
+.info-row.history .value {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .avatar-circle {
+    width: 250px;
+    height: 250px;
   }
-  
+
+  .ethnic-info {
+    margin-top: 2rem;
+  }
+
+  .info-row {
+    flex-direction: column;
+  }
+
+  .info-row .label {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .avatar-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ethnic-name h1 {
+    font-size: 2rem;
+  }
+
+  .ethnic-info {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .avatar-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .ethnic-content-wrapper {
+    padding: 1rem 0;
+  }
+
+  .ethnic-name h1 {
+    font-size: 1.75rem;
+  }
+
+  .ethnic-info {
+    padding: 1rem;
+  }
+}
   /* Hiệu ứng zoom khi hover */
   .zoomable {
     transition: transform 0.3s ease;

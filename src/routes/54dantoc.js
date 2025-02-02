@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import culturalVideo from '../assets/vid_vi.mp4';
 import '../stylesheet/54dantoc.css';
 import MultiLevelNavbar from '../components/Navbar.js';
 import Footer from "../components/Footer.js";
 import logo from "../assets/Logo.png";
+import Header from '../components/Header.js'
 
 const ethnicGroupsData = [
   { id: 1, name: 'Cống', image: 'Cong-W.png' },
@@ -79,29 +79,7 @@ const EthnicGroupsShowcase = () => {
   return (
     <div className="w-full overflow-hidden">
       <MultiLevelNavbar />
-      <div className="relative w-full h-[calc(100vh-64px)] min-h-[400px] max-h-[800px] overflow-hidden">
-        <video 
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          src={culturalVideo}
-        >
-          <source src={culturalVideo} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 z-10 flex items-center justify-center text-white">
-          <div className="text-center px-4 md:px-8">
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg text-shadow-lg">
-              54 Dân Tộc Việt Nam
-            </h1>
-            <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto drop-shadow-md text-shadow-md">
-              Đất nước nghìn năm văn hiến - Nơi hội tụ bản sắc văn hóa của 54 dân tộc anh em
-            </p>
-          </div>
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
-      </div>
+      <Header />
       <section className="container-fluid py-5 bg-white gioithieu">
         <div className="container">
           <div className="text-center mb-4">
@@ -127,7 +105,6 @@ const EthnicGroupsShowcase = () => {
 
       {/* Phần danh sách các dân tộc */}
       <section className="container py-5">
-        {/* Thanh search */}
         <div className="row mb-4 justify-content-center">
           <div className="col-12 col-md-6">
             <input
@@ -139,35 +116,24 @@ const EthnicGroupsShowcase = () => {
             />
           </div>
         </div>
-        <div className="row justify-content-center">
+        
+        <div className="row g-4 justify-content-center">
           {groupsToShow.length > 0 ? (
             groupsToShow.map((group) => {
               const imgSrc = process.env.PUBLIC_URL + '/ethnic/' + group.image;
               return (
-                <div key={group.id} className="col-4 col-sm-3 col-md-2 text-center mb-4">
+                <div key={group.id} className="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
                   <Link 
-                    className="routes_ethnic" 
+                    className="ethnic-item-link" 
                     to={`/ethnic-group/${group.id}`}
-                    style={{ textDecoration: 'none' }}
+                    data-tooltip={group.name}
                   >
                     <div 
-                      className="mx-auto"
+                      className="ethnic-avatar mx-auto"
                       style={{
-                        width: '100px',
-                        height: '100px',
-                        borderRadius: '50%',
                         backgroundImage: `url(${imgSrc})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        transition: 'transform 0.3s ease',
-                        cursor: 'pointer'
                       }}
-                      onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                      onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     ></div>
-                    <p className="mt-2 fw-bold" style={{ fontSize: '0.9rem', color: '#333' }}>
-                      {group.name}
-                    </p>
                   </Link>
                 </div>
               );
@@ -180,7 +146,7 @@ const EthnicGroupsShowcase = () => {
         </div>
 
         {!showAll && !searchQuery && filteredGroups.length > groupsToShow.length && (
-          <div className="text-center mt-3">
+          <div className="text-center mt-4">
             <button 
               className="btn btn-primary"
               onClick={() => setShowAll(true)}
