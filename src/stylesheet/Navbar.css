@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz@0,14..32;1,14..32&family=Mea+Culpa&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Rowdies:wght@300;400;700&display=swap');
+
+.Navbar {
+    background-color: #A22513;
+    background-image: url('../assets/Nav_pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu {
+    padding: 15px;
+}
+
+.custom-nav .nav-link,
+.custom-nav .nav-dropdown {
+    margin-right: 15px;
+    color: #E3C692;
+    font-size: 17px;
+    font-family: 'Rowdies';
+    font-weight: 100;
+    position: relative; /* Thêm position relative cho hiệu ứng gạch chân */
+    transition: all 0.3s ease; /* Thêm transition cho hover mượt mà */
+}
+
+/* Thêm hiệu ứng gạch chân khi hover và active */
+.custom-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #E3C692;
+    transition: width 0.3s ease;
+}
+
+.custom-nav .nav-link:hover::after,
+.custom-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Hiệu ứng hover cho nav-link */
+.custom-nav .nav-link:hover,
+.custom-nav .dropdown-toggle:hover {
+    color: #E3C692;
+    opacity: 0.8;
+}
+
+.btn-login .nav-link {
+    color: #E3C692;
+    font-size: 17px;
+    border: 2px solid #E3C692;
+    padding: 5px;
+    border-radius: 8px;
+    font-family: 'Rowdies';
+    transition: all 0.3s ease; /* Thêm transition cho button login */
+}
+
+.btn-login .nav-link:hover {
+    background-color: #E3C692;
+    color: #73562C;
+    transform: translateY(-2px); /* Thêm hiệu ứng nâng nhẹ button khi hover */
+}
+
+/* Style cho dropdown */
+.dropdown-box .dropdown-menu {
+    background-color: #A22513;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 0;
+    animation: fadeIn 0.3s ease; /* Thêm animation khi dropdown xuất hiện */
+}
+
+/* Style cho dropdown items */
+.dropdown-box .dropdown-item {
+    color: #E3C692;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.dropdown-box .dropdown-item:hover {
+    background-color: rgba(227, 198, 146, 0.1); /* Màu nền hover với độ trong suốt */
+    color: #E3C692;
+    transform: translateX(5px); /* Thêm hiệu ứng dịch phải khi hover */
+}
+
+/* Animation cho dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style cho dropdown arrow */
+.dropdown-toggle::after {
+    transition: transform 0.3s ease;
+}
+
+.show.dropdown .dropdown-toggle::after {
+    transform: rotate(-180deg);
+}
