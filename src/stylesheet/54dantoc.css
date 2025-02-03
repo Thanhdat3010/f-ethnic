@@ -41,4 +41,10 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.ethnic-item-link:hover:before {
+    opacity: 1;
+    visibility: visible;
 }
