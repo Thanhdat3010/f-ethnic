@@ -10,7 +10,7 @@ import ethnic from '../assets/ethnic.jpg';
 import library from '../assets/library.jpg';
 import logo from "../assets/Logo.png";
 
-
+// Trang chủ
 const Home = () => {
   return (
     <div className="home">
