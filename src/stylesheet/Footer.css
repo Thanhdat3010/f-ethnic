@@ -1,6 +1,5 @@
-.Footer {
-    background-color: #A22513;
-    background-image: url('../assets/Nav_pattern.png'); /* Đường dẫn tới ảnh nền */
-    background-size: cover; /* Bao phủ toàn bộ navbar */
-    background-repeat: no-repeat;
+.Footer, i, a {
+    background-color: #fff;
+    color: #002ea6;
+    text-decoration: none;
 }

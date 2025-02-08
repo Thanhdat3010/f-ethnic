@@ -78,8 +78,8 @@ export const ethnicData = {
     languageGroup: 'Ka Đai',
     languageFamily: 'Thái-Ka Đai',
     shortHistory: 'Người La Ha xuất hiện ở khu vực Tây Bắc nước ta từ lâu đời, khoảng trước thế kỷ XI-XII. Người La Ha không có nghề trồng bông dệt vải, phần lớn đồ mặc của họ là do trao đổi với người Thái mà có. Trang phục người La Ha giống với người Thái Đen.',
-    image1: 'LaHa-W.png',
-    image2: 'LaHa-M.png',
+    image1: 'Laha-W.png',
+    image2: 'Laha-M.png',
   },
   6: {
     name: 'La Hủ',
@@ -558,8 +558,8 @@ export const ethnicData = {
     languageGroup: 'Mã Lai - Đa Đảo',
     languageFamily: 'Nam Đảo',
     shortHistory: 'Người Raglai có chiếc áo khoang - thân áo và ống tay áo có nhiều khoang đen trắng xen kẽ nhau. Người nam Raglai đeo khố, mặc áo khoang. Cả nam và nữ đều có khăn vấn đầu.',
-    image1: 'RaGlai-W.png',
-    image2: 'RaGlai-M.png',
+    image1: 'RagLai-W.png',
+    image2: 'RagLai-M.png',
   },
   38: {
     name: 'Brâu',
@@ -663,8 +663,8 @@ export const ethnicData = {
     languageGroup: 'Môn - Khơ Me',
     languageFamily: 'Nam Á',
     shortHistory: 'Người Mnông sinh tụ lâu đời ở khu vực miền trung Tây Nguyên nước ta. Họ trồng lúa làm cây lương thực chính. Nghề đan mây tre, trồng bông dệt vải phát triển. Theo truyền thống, đàn ông và đàn bà Mnong đều ở trần. Đàn ông mặc khố, đàn bà quấn váy tấm. Khố người Mnong có ba loại, khố trắng cho người nghèo, khố đen cho người bình dân và khố hoa (vải nền đen có hoa bạc hoặc đồng và hạt cườm ngũ sắc) dành cho người giàu.',
-    image1: 'MNong-W.png',
-    image2: 'MNong-M.png',
+    image1: 'Mnong-W.png',
+    image2: 'Mnong-M.png',
   },
   45: {
     name: 'Rơ Măm',

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../stylesheet/54dantoc.css';
 import MultiLevelNavbar from '../components/Navbar.js';
 import Footer from "../components/Footer.js";
-import logo from "../assets/Logo.png";
+import logo from "../assets/Logo.svg";
 import Header from '../components/Header.js'
 
 const ethnicGroupsData = [
@@ -11,7 +11,7 @@ const ethnicGroupsData = [
   { id: 2, name: 'Hà Nhì', image: 'HaNhi-W.png' },
   { id: 3, name: 'Kháng', image: 'Khang-W.png' },
   { id: 4, name: 'Khơ Mú', image: 'KhoMu-W.png' },
-  { id: 5, name: 'La Ha', image: 'LaHa-W.png' },
+  { id: 5, name: 'La Ha', image: 'Laha-W.png' },
   { id: 6, name: 'La Hủ', image: 'LaHu-W.png' },
   { id: 7, name: 'Lào', image: 'Lao-W.png' },
   { id: 8, name: 'Lự', image: 'Lu-W.png' },
@@ -43,14 +43,14 @@ const ethnicGroupsData = [
   { id: 34, name: 'Tà Ôi', image: 'TaOi-W.png' },
   { id: 35, name: 'Thổ', image: 'Tho-W.png' },
   { id: 36, name: 'Co', image: 'Co-W.png' },
-  { id: 37, name: 'Ra Glai', image: 'RaGlai-W.png' },
+  { id: 37, name: 'Ra Glai', image: 'RagLai-W.png' },
   { id: 38, name: 'Brâu', image: 'Brau-W.png' },
   { id: 39, name: 'Chu Ru', image: 'ChuRu-W.png' },
   { id: 40, name: 'Cơ-Ho', image: 'CoHo-W.png' },
   { id: 41, name: 'Ê Đê', image: 'EDe-W.png' },
   { id: 42, name: 'Gia Rai', image: 'GiaRai-W.png' },
   { id: 43, name: 'Mạ', image: 'Ma-W.png' },
-  { id: 44, name: "M'Nông", image: 'MNong-W.png' },
+  { id: 44, name: "M'Nông", image: 'Mnong-W.png' },
   { id: 45, name: 'Rơ Măm', image: 'RoMam-W.png' },
   { id: 46, name: 'Xơ Đăng', image: 'XoDang-W.png' },
   { id: 47, name: 'Ba Na', image: 'BaNa-W.png' },
@@ -90,12 +90,12 @@ const EthnicGroupsShowcase = () => {
               style={{ maxWidth: '80px' }}
             />
           </div>
-          <h1 className="text-center mb-5 fw-bold" style={{ color: '#AE342D' }}>
+          <h1 className="text-center mb-5 fw-bold" style={{ color: '#8F0006' }}>
             54 SẮC TỘC
           </h1>
           <div className="row justify-content-center">
             <div className="col-12 col-lg-10">
-              <p className="text-center mb-4" style={{ color: '#03526E' }}>
+              <p className="text-center mb-4" style={{ color: '#002ea6' }}>
                 Khám phá sức mạnh đoàn kết của 54 dân tộc anh em – nơi tình yêu tổ quốc và niềm tự hào văn hóa hòa quyện! Đây là không gian số hiện đại, nơi công nghệ AI tiên phong chuyển đổi số, lưu giữ và tôn vinh những giá trị văn hóa truyền thống của đồng bào. Hãy cùng nhau viết tiếp trang sử hào hùng, bảo vệ di sản quý báu của tổ tiên, để mỗi con người Việt luôn tự hào và đoàn kết trên hành trình phát triển đất nước.
               </p>
             </div>
