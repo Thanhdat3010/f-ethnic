@@ -1,0 +1,23 @@
+.box-text {
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.tagline p {
+    
+    background-color: #e9e9e9;
+    border-radius: 15px;
+    padding: 5px;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.X-box {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-style: bold;
+    text-align: center;
+}

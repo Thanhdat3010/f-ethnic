@@ -26,6 +26,7 @@ const MultiLevelNavbar = () => {
             <NavDropdown title="CÔNG CỤ AI" id="ai-tools-dropdown" className="dropdown-box">
               <NavDropdown.Item className="dropdown-item" href="#">Kiểm tra phát âm</NavDropdown.Item>
               <NavDropdown.Item className="dropdown-item" href="#">Phiên dịch ngôn ngữ</NavDropdown.Item>
+              <NavDropdown.Item className="dropdown-item" href="/CombinedOCR">OCR tài liệu</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="https://padlet.com/fivecethnocraft">CỘNG ĐỒNG</Nav.Link>
           </Nav>

@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Home from "./routes/Home";
 import EthnicGroupsShowcase from "./routes/54dantoc";
 import EthnicDetailPage from './routes/datadantoc';
+import CombinedOCR from './routes/GeminiOCR';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <Route path='/' element={<Home/>}/>
     <Route path='/EthnicGroupsShowcase' element={<EthnicGroupsShowcase/>}/>
     <Route path="/ethnic-group/:id" element={<EthnicDetailPage />} />
+    <Route path='/CombinedOCR' element={<CombinedOCR/>} />
     </Routes>
   </div>
 
