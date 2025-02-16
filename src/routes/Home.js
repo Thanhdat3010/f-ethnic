@@ -7,6 +7,7 @@ import womanImage from '../assets/Home_bg.png';
 import Intro from '../assets/dantocVietnam.png';
 import logo from "../assets/Logo.svg";
 
+// home
 const Home = () => {
   return (
     <div className="home">
