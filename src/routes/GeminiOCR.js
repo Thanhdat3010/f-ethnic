@@ -7,8 +7,7 @@ import MultiLevelNavbar from '../components/Navbar.js';
 import jsPDF from 'jspdf'; 
 
 // Khởi tạo Gemini API
-const API_KEY = 'process.env.REACT_APP_GEMINI_API_KEY';
-const genAI = new GoogleGenerativeAI(API_KEY);
+const genAI = new GoogleGenerativeAI("AIzaSyBFQPRDlpG9bXs3-_To8j8M2X9FnEDLe4E");
 
 const ethnicData = {
   ethnicities: ["Êđê", "Khmer", "Chăm", "Thái", "H'Mông", "Dao"],
