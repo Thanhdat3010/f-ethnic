@@ -10,43 +10,35 @@ import jsPDF from 'jspdf';
 const genAI = new GoogleGenerativeAI("AIzaSyBFQPRDlpG9bXs3-_To8j8M2X9FnEDLe4E");
 
 const ethnicData = {
-  ethnicities: ["Êđê", "Khmer", "Chăm", "Thái", "H'Mông", "Dao"],
+  ethnicities: ["Êđê", "Khmer", "Thái", "H'Mông", "Hrê", "Co"],
   metadata: {
     "Êđê": {
-      locations: ["Đắk Lắk", "Đắk Nông", "Gia Lai"],
-      document_types: ["bài hát dân gian", "thơ ca", "truyện cổ tích", "văn bản nghi lễ"],
-      keywords: ["Ama H'Rai", "Klei", "Ding Pơk", "Mkăn", "Knuê"],
-      cultural_notes: "Ngôn ngữ Êđê thuộc nhóm Chăm, sử dụng cả chữ Latinh có dấu và chữ truyền thống. Đặc trưng với các sử thi dài như Khan Dam San."
+      alphabet: ["A, Ă, Â, B, C, Ƀ, Č, D, Đ, E, Ê, Ĕ, Ê̆, G, H, I, Ĭ, J, K, L, M, N, Ñ, O, Ô, Ŏ, Ơ, Ơ̆, P, R, S, T, U, Ŭ, Ư, Ư̆, W, Y, a, â, ă, b, ƀ, č, d, đ, e, ê, ê̆, g, h, i, ĭ, j, k , l, m, n, ñ, o, ô, ŏ, ô̆, ơ, ơ̆, p, r, s, t, u, ŭ, ư, ư̆, w, y"],
+      examples: ["Mlŏng gŭ, anăn mlŏng gŭ, anăn mlŏng gŭ! Mlŏng gŭ, anăn mlŏng gŭ, anăn mlŏng gŭ! Mlŏng gŭ, anăn mlŏng gŭ, anăn mlŏng gŭ! Bản dịch (Trái tim tôi, ôi trái tim tôi, ôi trái tim tôi! Trái tim tôi, ôi trái tim tôi, ôi trái tim tôi! Trái tim tôi, ôi trái tim tôi, ôi trái tim tôi!)"],
+      font: "Inter",
     },
     "Khmer": {
-      locations: ["Trà Vinh", "Sóc Trăng", "An Giang"],
-      document_types: ["kinh Phật", "văn bản hành chính", "thơ ca", "văn tự cổ"],
-      keywords: ["ព្រះ", "ខ្មែរ", "អក្សរ", "ភាសា"],
-      cultural_notes: "Chữ Khmer có nguồn gốc từ Brahmi, thường thấy trong các văn bản tôn giáo Phật giáo Nam tông."
-    },
-    "Chăm": {
-      locations: ["Ninh Thuận", "Bình Thuận", "An Giang"],
-      document_types: ["akhar thrah", "văn bản tôn giáo", "thơ ca", "bia ký"],
-      keywords: ["po", "patao", "inâ", "acar"],
-      cultural_notes: "Người Chăm có hai hệ thống chữ viết: Akhar Thrah (truyền thống) và Jawi Cham (dựa trên Arabic)."
+      alphabet: ["ក, ខ, គ, ឃ, ង, ច, ឆ, ជ, ឈ, ញ, ដ, ឋ, ឌ, ឍ, ណ, ត, ថ, ទ, ធ, ន, ប, ផ, ព, ភ, ម, យ, រ, ល, វ, ស, ហ, ឡ, អ, អ, អា, ឥ, ឦ, ឧ, ឩ, ឪ, ឳ, ឨ, ឰ, ឱ, ឲ, ឬ, ឮ, ឯ, ឤ, ឭ"],
+      examples: "ក្នុងឋានៈជាសមាជិកនៃសង្គម មនុស្សគ្រប់រូប មានសិទ្ធិទទួលបានសន្ដិសុខសង្គម និងមានបុព្វ សិទ្ធិសម្រេចបានសិទ្ធិខាងសេដ្ឋកិច្ច សង្គមកិច្ច និងវប្បធម៌ ដែលចាំបាច់សម្រាប់សេចក្ដីថ្លៃថ្នូរ និងការ រីកចំរើនដោយសេរីនៃបុគ្គលិកលក្ខណៈរបស់ខ្លួន តាមរយៈការខិតខំរបស់ជាតិ និងសហប្រតិបត្ដិការអន្ដរ ជាតិ និងដោយយោងទៅតាមការរៀបចំ និងធនធានរបស់ប្រទេសនីមួយៗ។ មនុស្សគ្រប់រូប មានសិទ្ធិឈប់សម្រាក និងលំហែកំសាន្ដ រួមបញ្ចូលទាំងកម្រិតម៉ោងការងារ សមហេតុផល និងការឈប់សម្រាក ដោយបានប្រាក់បៀវត្សតាមពេលកំណត់ទៀងទាត់។ មនុស្សគ្រប់រូប មានសិទ្ធិទទួលបាននូវសណ្ដាប់ធ្នាប់សង្គមនិងអន្ដរជាតិ ដែលធ្វើឱ្យសិទ្ធិ និង សេរីភាព ចែងក្នុងសេចក្ដីប្រកាសនេះ អាចសម្រេចបានដោយពេញលេញ។ គ្មានបទបញ្ញត្ដិណាមួយនៃសេចក្ដីប្រកាសនេះ អាចត្រូវបានបកស្រាយ តម្រូវថា រដ្ឋណាមួយ ក្រុមណាមួយ ឬបុគ្គលណាម្នាក់ មានសិទ្ធិបែបណាមួយ ក្នុងការធ្វើសកម្មភាព ឬការប្រព្រឹត្ដអំពើអ្វ្វីមួយ ដែលសំដៅទៅបំផ្លិចបំផ្លាញនូវសិទ្ធិ និងសេរីភាពទាំងឡាយ ដែលមានចែងនៅក្នុងសេចក្ដីប្រកាសនេះ ឡើយ។",
+      font: "Khmer",
     },
     "Thái": {
-      locations: ["Sơn La", "Điện Biên", "Lai Châu", "Nghệ An"],
-      document_types: ["sử thi", "thơ ca", "truyện dân gian", "sách cổ"],
-      keywords: ["tạy", "thái", "mường", "xẩm", "lượn"],
-      cultural_notes: "Chữ Thái cổ (Tày Viet) đã tồn tại từ thế kỷ 16, có nhiều nét tương đồng với chữ Lào và chữ Thái Lan."
+      font: "Noto Sans Tai Viet",
     },
     "H'Mông": {
-      locations: ["Hà Giang", "Lào Cai", "Yên Bái", "Sơn La"],
-      document_types: ["văn bản tôn giáo", "thơ ca", "truyện dân gian"],
-      keywords: ["paj", "ntaub", "kwv", "txhiaj", "neej"],
-      cultural_notes: "Người H'Mông dùng nhiều hệ thống chữ viết, phổ biến nhất là chữ Latinh cải tiến (RPA) và Pahawh Hmong."
+      alphabet: ["nh, n, m, ml, p, pl, t, đ, b, bl, nt, hnh, hn, hm, hml, ph, fl, th, đh, mf, mfl, nth, v,	x,	s,	j,	z,	sh,	h, i,	ê,	a,	o, ao,	u,	ư,	ênh,	ang,	ông,	ai,	ơư,	âu,	iê,	uô"],
+      examples: "Tiamsis, kev khaws cia peb haiv neeg txoj kev coj noj coj ua yog ib qho tseem ceeb heev. Nws pab peb kom peb txawj ntse txog peb keeb kwm, kab lis kev cai, thiab lus Hmoob, uas yog peb cov cuab yeej muaj nqis. Yog peb tsis khaws cia thiab txhawb nqa, tej no yuav ploj mus, thiab peb cov tub ntxhais yuav tsis paub txog lawv cov cag. Yog li ntawd, peb yuav tsum sib zog ua ke kom peb haiv neeg txoj kev coj noj coj ua nyob ruaj khov mus ib txhis. Bản phiên dịch: (Tuy nhiên, việc bảo tồn văn hóa dân tộc của chúng ta rất quan trọng. Nó giúp chúng ta hiểu biết về lịch sử, văn hóa, và ngôn ngữ H'Mông — những giá trị quý báu của dân tộc. Nếu chúng ta không gìn giữ và phát huy, những điều này có thể mai một, và thế hệ trẻ sẽ không biết về cội nguồn của mình. Vì vậy, chúng ta cần đoàn kết cùng nhau để bảo tồn và giữ gìn văn hóa dân tộc mãi mãi.)",
+      font: "Inter",
     },
-    "Dao": {
-      locations: ["Hà Giang", "Tuyên Quang", "Cao Bằng", "Lạng Sơn"],
-      document_types: ["sách tôn giáo", "văn bản nghi lễ", "sách thuốc cổ"],
-      keywords: ["ban", "seng", "minh", "dao", "nom"],
-      cultural_notes: "Chữ Nôm Dao dựa trên chữ Hán, chủ yếu dùng trong nghi lễ tôn giáo và y học cổ truyền."
+    "Hrê": {
+      alphabet: ["a, à, â, b, 'b, c, d, đ, e, è, ê, f, g, h, i, ì, j, k, l, m,' m, n, ' n, o, ò, ô, ŏ, p, q, r, 'r, s, t, u, ù, v, w,' w, x, y, 'y, z"],
+      examples: "Nghĩa kơu Hrê, nglôih kơu Hrê, mưng tơlaih kơu Hrê, mưng chơlaih kơu Hrê, mưng tơlaih kơu Hrê. bản dịch: (Người Hrê chúng ta, tiếng nói của người Hrê, văn hóa của người Hrê, phong tục của người Hrê, truyền thống của người Hrê.)",
+      font: "Inter",
+    },
+    "Co": {
+      alphabet: ["a, á, â, ă, b, 'b, c, d, đ, e, é, è, ê, f, g, h, i, ì, j, k, l, m,' m, n, ' n, o, ò, ô, ŏ, p, q, r, 'r, s, t, u, ù, v, w,' w, x, y, 'y, z"],
+      examples: "Al đhi mnih Duat lang mnih Kool? Kool e al?. Bản dịch (Anh cũng là người Co đúng không?)",
+      font: "Inter",
     }
   }
 };
@@ -180,27 +172,33 @@ Lưu ý: Hãy sử dụng logic và phân tích chi tiết trong từng bước 
 
   if (ethnicName === 'Êđê' && metadata.keywords) {
     fewShotPrompt = `
-        Gợi ý: Các từ khóa thường xuất hiện trong văn bản Êđê gồm ${metadata.keywords.join(', ')}...
+        Gợi ý: Các từ khóa thường xuất hiện trong văn bản Êđê gồm ${metadata.alphabet.join(', ')}...
+        Gợi ý: Các từ khóa thường xuất hiện trong văn bản Êđê gồm ${metadata.examples.join(', ')}...
       `;
   } else if (ethnicName === 'Khmer' && metadata.keywords) {
     fewShotPrompt = `
-        Gợi ý: Chữ Khmer cổ thường có đặc điểm: ký tự có chấm tròn ở giữa, nét ngang dài, và các biểu tượng tôn giáo như ${metadata.keywords.join(', ')}...
-      `;
-  } else if (ethnicName === 'Chăm' && metadata.keywords) {
-    fewShotPrompt = `
-        Gợi ý: Văn bản Chăm thường có các ký tự như ${metadata.keywords.join(', ')}. Chú ý đến chữ viết truyền thống với dấu hiệu đặc trưng của ngôn ngữ này.
-      `;
-  } else if (ethnicName === 'Thái' && metadata.keywords) {
-    fewShotPrompt = `
-        Gợi ý: Các ký tự Thái đặc trưng thường bao gồm ${metadata.keywords.join(', ')}. Hãy lưu ý phong cách chữ Thái cổ với nét uyển chuyển và đặc điểm riêng.
+        Gợi ý: Chữ Khmer cổ thường có đặc điểm: ký tự có chấm tròn ở giữa, nét ngang dài, và các biểu tượng tôn giáo như ${metadata.alphabet.join(', ')}...
+        Gợi ý: Chữ Khmer cổ thường có đặc điểm: ký tự có chấm tròn ở giữa, nét ngang dài, và các biểu tượng tôn giáo như ${metadata.examples.join(', ')}...
+        Gợi ý: Chữ Khmer cổ thường có đặc điểm: ký tự có dấu phụ, các nét mảnh như ${metadata.font}...
       `;
   } else if (ethnicName === "H'Mông" && metadata.keywords) {
     fewShotPrompt = `
-        Gợi ý: Văn bản H'Mông thường sử dụng chữ Latinh cải tiến (RPA) hoặc Pahawh Hmong, với các từ khóa như ${metadata.keywords.join(', ')}. 
+        Gợi ý: Văn bản H'Mông thường sử dụng chữ Latinh cải tiến (RPA) hoặc Pahawh Hmong, với các từ khóa như ${metadata.alphabet.join(', ')}. 
+        Gợi ý: Văn bản H'Mông thường sử dụng chữ Latinh cải tiến (RPA) hoặc Pahawh Hmong, với các từ khóa như ${metadata.examples.join(', ')}. 
       `;
-  } else if (ethnicName === 'Dao' && metadata.keywords) {
+  } else if (ethnicName === 'Hrê' && metadata.keywords) {
     fewShotPrompt = `
-        Gợi ý: Chữ Nôm Dao dựa trên chữ Hán, thường gặp các ký tự như ${metadata.keywords.join(', ')}. Chú ý đến nét mảng và phong cách viết truyền thống.
+        Gợi ý: Chữ Hrê dựa trên chữ cái latin ghép lại với nhau, thường gặp các ký tự như ${metadata.alphabet.join(', ')}.
+        Gợi ý: Chữ Hrê dựa trên chữ cái latin ghép lại với nhau, thường gặp các ký tự như ${metadata.examples.join(', ')}.
+      `;
+  } else if (ethnicName === 'Co' && metadata.keywords) {
+    fewShotPrompt = `
+        Gợi ý: Chữ Hrê dựa trên chữ cái latin ghép lại với nhau, thường gặp các ký tự như ${metadata.alphabet.join(', ')}.
+        Gợi ý: Chữ Hrê dựa trên chữ cái latin ghép lại với nhau, thường gặp các ký tự như ${metadata.examples.join(', ')}.
+      `;
+  } else if (ethnicName === 'Thái' && metadata.keywords) {
+    fewShotPrompt = `
+        Gợi ý: Chữ Thái dựa trên các nét chữ mảnh tượng hình hãy luôn sử dụng font chữ, thường gặp các ký tự như ${metadata.font}.
       `;
   }
 
@@ -413,7 +411,7 @@ function CombinedOCR() {
       ]);
   
       const responseText = ocrResult.response.text();
-  
+      
       if (responseText) {
         const parsedResult = parseGeminiResponse(responseText);
         setResult(parsedResult);
@@ -435,6 +433,16 @@ function CombinedOCR() {
     }
   };
 
+  const getFontByEthnicity = (ethnicity) => {
+    return ethnicData.metadata[ethnicity]?.font || 'Inter';
+  };
+  
+  const resultStyle = {
+    fontFamily: getFontByEthnicity(ethnicity),
+    fontSize: '1rem',
+    lineHeight: '1.5',
+    whiteSpace: 'pre-wrap',
+  };
   // Cleanup khi component unmount
   useEffect(() => {
     return () => {
@@ -556,7 +564,7 @@ function CombinedOCR() {
                 {result.translation && (
                   <div className="mb-3">
                     <h6>Kết quả OCR:</h6>
-                    <p className="text-break" style={{ whiteSpace: 'pre-wrap', fontSize: '1rem', lineHeight: '1.5' }}>{result.translation}</p>
+                    <p className="text-break" style={resultStyle}>{result.translation}</p>
                   </div>
                 )}
 
