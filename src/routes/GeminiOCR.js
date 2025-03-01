@@ -6,7 +6,6 @@ import '../stylesheet/OCR.css'
 import MultiLevelNavbar from '../components/Navbar.js';
 import jsPDF from 'jspdf'; 
 
-// Khởi tạo Gemini API
 const genAI = new GoogleGenerativeAI("AIzaSyBFQPRDlpG9bXs3-_To8j8M2X9FnEDLe4E");
 
 const ethnicData = {
