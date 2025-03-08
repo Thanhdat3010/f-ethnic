@@ -247,7 +247,7 @@ const ChatBot = () => {
               }}
             >
               <i className="fas fa-search"></i>
-              DeepSearch
+              DeepThinking
             </button>
             <button 
               type="button"
@@ -258,7 +258,7 @@ const ChatBot = () => {
               }}
             >
               <i className="fas fa-comment"></i>
-              Suy nghĩ
+              RAG
             </button>
           </div>
 
