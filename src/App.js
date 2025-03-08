@@ -6,7 +6,7 @@ import Home from "./routes/Home";
 import EthnicGroupsShowcase from "./routes/54dantoc";
 import EthnicDetailPage from './routes/datadantoc';
 import CombinedOCR from './routes/GeminiOCR';
-
+import ChatBot from "./routes/chatbot";
 function App() {
   return (
     <div className="App">
@@ -15,6 +15,8 @@ function App() {
     <Route path='/EthnicGroupsShowcase' element={<EthnicGroupsShowcase/>}/>
     <Route path="/ethnic-group/:id" element={<EthnicDetailPage />} />
     <Route path='/CombinedOCR' element={<CombinedOCR/>} />
+    <Route path='/ChatBot' element={<ChatBot/>} />
+
     </Routes>
   </div>
 
