@@ -179,7 +179,9 @@ const ChatBot = () => {
       [messageId]: !prev[messageId]
     }));
   };
-
+const formatBoldText = (text) => {
+  return text.replace(/\*(.*?)\*/g, '<strong>$1</strong>').replace(/\*/g, '');
+};
   return (
     <div className="chatbot-container">
       <MultiLevelNavbar/>
@@ -206,15 +208,13 @@ const ChatBot = () => {
                     <div className={`thoughts-content ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
                       {message.thoughts && message.thoughts.map((thought, index) => (
                         <div key={index} className="thinking-process">
-                          <div className="message-content">{thought}</div>
+                          <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(thought) }}></div>
                         </div>
                       ))}
                       {message.thinking && !message.thinking.isComplete && (
                         <div className="thinking-process">
-                          <div className="message-content">
-                            {message.thinking.content}
-                            <span className="typing-cursor">▋</span>
-                          </div>
+                          <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.thinking.content) }}></div>
+                          <span className="typing-cursor">|</span>
                         </div>
                       )}
                     </div>
