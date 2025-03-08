@@ -9,6 +9,7 @@ const ChatBot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
   const [collapsedThoughts, setCollapsedThoughts] = useState({});
+  const [selectedMode, setSelectedMode] = useState('normal');
 
   useEffect(() => {
     const lastMessage = messages[messages.length - 1];
@@ -161,14 +162,14 @@ const ChatBot = () => {
     setInputMessage('');
     
     if (isDeepThinkMode) {
-      await handleDeepThink(message);
+        await handleDeepThink(message);
     } else {
-      setMessages(prev => [...prev, { 
-        id: Date.now(),
-        text: message, 
-        isUser: true 
-      }]);
-      await handleNormalChat(message);
+        setMessages(prev => [...prev, { 
+            id: Date.now(),
+            text: message, 
+            isUser: true 
+        }]);
+        await handleNormalChat(message);
     }
   };
 
@@ -183,21 +184,6 @@ const ChatBot = () => {
     <div className="chatbot-container">
       <MultiLevelNavbar/>
       <div className="chat-interface">
-        <div className="mode-toggle">
-          <button 
-            className={`mode-button ${!isDeepThinkMode ? 'active' : ''}`}
-            onClick={() => setIsDeepThinkMode(false)}
-          >
-            Chat Thường
-          </button>
-          <button 
-            className={`mode-button ${isDeepThinkMode ? 'active' : ''}`}
-            onClick={() => setIsDeepThinkMode(true)}
-          >
-            Deep Think 🧠
-          </button>
-        </div>
-
         <div className="chat-messages">
           {messages.map((message) => (
             <div key={message.id}>
@@ -207,34 +193,32 @@ const ChatBot = () => {
                 </div>
               ) : (
                 <div className="bot-response">
-                  {message.thoughts && message.thoughts.length > 0 && (
-                    <div className="thoughts-container">
-                      <div 
-                        className="thoughts-header" 
-                        onClick={() => toggleThoughts(message.id)}
-                      >
-                        <span className="thoughts-title">Quá trình suy nghĩ</span>
-                        <span className={`collapse-icon ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
-                          {collapsedThoughts[message.id] ? '▼' : '▲'}
-                        </span>
-                      </div>
-                      <div className={`thoughts-content ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
-                        {message.thoughts.slice(0, -1).map((thought, index) => (
-                          <div key={index} className="thinking-process">
-                            <div className="message-content">{thought}</div>
-                          </div>
-                        ))}
-                        {message.thinking && !message.thinking.isComplete && (
-                          <div className="thinking-process">
-                            <div className="message-content">
-                              {message.thinking.content}
-                              <span className="typing-cursor">▋</span>
-                            </div>
-                          </div>
-                        )}
-                      </div>
+                  <div className="thoughts-container">
+                    <div 
+                      className="thoughts-header" 
+                      onClick={() => toggleThoughts(message.id)}
+                    >
+                      <span className="thoughts-title">Quá trình suy nghĩ</span>
+                      <span className={`collapse-icon ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
+                        {collapsedThoughts[message.id] ? '▼' : '▲'}
+                      </span>
                     </div>
-                  )}
+                    <div className={`thoughts-content ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
+                      {message.thoughts && message.thoughts.map((thought, index) => (
+                        <div key={index} className="thinking-process">
+                          <div className="message-content">{thought}</div>
+                        </div>
+                      ))}
+                      {message.thinking && !message.thinking.isComplete && (
+                        <div className="thinking-process">
+                          <div className="message-content">
+                            {message.thinking.content}
+                            <span className="typing-cursor">▋</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                   {message.finalAnswer && (
                     <div className="message bot-message final-answer">
                       <div className="message-content">{message.finalAnswer}</div>
@@ -253,15 +237,41 @@ const ChatBot = () => {
         </div>
         
         <form onSubmit={handleSubmit} className="input-container">
+          <div className="mode-selector">
+            <button 
+              type="button"
+              className={`mode-option ${selectedMode === 'deep-search' ? 'active' : ''}`}
+              onClick={() => {
+                setSelectedMode('deep-search');
+                setIsDeepThinkMode(true);
+              }}
+            >
+              <i className="fas fa-search"></i>
+              DeepSearch
+            </button>
+            <button 
+              type="button"
+              className={`mode-option ${selectedMode === 'normal' ? 'active' : ''}`}
+              onClick={() => {
+                setSelectedMode('normal');
+                setIsDeepThinkMode(false);
+              }}
+            >
+              <i className="fas fa-comment"></i>
+              Suy nghĩ
+            </button>
+          </div>
+
           <input
             type="text"
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
-            placeholder={isDeepThinkMode ? "Hỏi câu hỏi để bot suy nghĩ sâu..." : "Nhập tin nhắn của bạn..."}
+            placeholder="Làm thế nào để BVAI có thể giúp?"
             className="message-input"
           />
+
           <button type="submit" className="send-button">
-            {isDeepThinkMode ? '🧠 Deep Think' : 'Gửi'}
+            <i className="fas fa-arrow-up"></i>
           </button>
         </form>
       </div>
