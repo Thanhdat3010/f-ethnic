@@ -22,7 +22,7 @@ const ChatBot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const typeText = async (text, messageId, delay = 20) => {
+  const typeText = async (text, messageId, delay = 5) => {
     setIsTyping(true);
     let currentText = '';
     
