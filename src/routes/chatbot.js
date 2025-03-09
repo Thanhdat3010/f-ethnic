@@ -183,8 +183,9 @@ const formatBoldText = (text) => {
   return text.replace(/\*(.*?)\*/g, '<strong>$1</strong>').replace(/\*/g, '');
 };
   return (
-    <div className="chatbot-container">
+    <div>
       <MultiLevelNavbar/>
+    <div className="chatbot-container">
       <div className="chat-interface">
         <div className="chat-messages">
           {messages.map((message) => (
@@ -206,27 +207,31 @@ const formatBoldText = (text) => {
                       </span>
                     </div>
                     <div className={`thoughts-content ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
-                      {message.thoughts && message.thoughts.map((thought, index) => (
-                        <div key={index} className="thinking-process">
-                          <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(thought) }}></div>
-                        </div>
-                      ))}
                       {message.thinking && !message.thinking.isComplete && (
                         <div className="thinking-process">
                           <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.thinking.content) }}></div>
                           <span className="typing-cursor">|</span>
                         </div>
                       )}
+                      {message.thinking && message.thinking.isComplete && message.thoughts && (
+                        <div className="thoughts-container">
+                          {message.thoughts.map((thought, index) => (
+                            <div key={index} className="thinking-process">
+                              <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(thought) }}></div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                   {message.finalAnswer && (
                     <div className="message bot-message final-answer">
-                      <div className="message-content">{message.finalAnswer}</div>
+                      <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.finalAnswer) }}></div>
                     </div>
                   )}
                   {!message.thinking && !message.finalAnswer && (
                     <div className="message bot-message">
-                      <div className="message-content">{message.text}</div>
+                    <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.text) }}></div>
                     </div>
                   )}
                 </div>
@@ -275,6 +280,7 @@ const formatBoldText = (text) => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

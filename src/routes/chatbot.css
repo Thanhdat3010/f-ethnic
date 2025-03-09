@@ -16,6 +16,7 @@
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    align-items: center;
   }
   
   .chat-messages {
@@ -58,6 +59,7 @@
     align-self: flex-end;
     margin-left: auto;
     max-width: fit-content;
+    align-self: flex-end;
   }
   
   .bot-message {
@@ -65,14 +67,16 @@
     color: #1a1a1a;
     align-self: flex-start;
     margin-right: 25%;
+    max-width: 100%;
+    width: 100%;
   }
   
   .bot-response {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 80%;
-    align-self: flex-start;
+    max-width: 100%;
+    align-self: center;
   }
   
   .thinking-process {
@@ -271,6 +275,7 @@
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border: none;
+    width: 100%;
   }
   
   .thoughts-header {
@@ -307,6 +312,7 @@
     max-height: 1000px;
     overflow-y: auto;
     transition: max-height 0.3s ease-in-out;
+    width: 100%;
   }
   
   .thoughts-content.collapsed {
