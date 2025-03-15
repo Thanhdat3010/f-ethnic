@@ -1,96 +1,344 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:ital,opsz@0,14..32;1,14..32&family=Khmer&family=Noto+Sans+Tai+Viet&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&family=Vina+Sans&display=swap');
 
-
-.header {
+.section {
+  padding: 80px 0; /* Tăng khoảng cách giữa các section */
   text-align: center;
-  padding: 30px 0;
-  background-color: #f8f8f8;
+}
+
+.section#trangchu {
+  background-image: url('../assets/Home_bg.svg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white; 
+  text-align: center;
+  padding: 180px 0;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section#trangchu .Container {
+  text-align: center;
+}
+
+.section#trangchu > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section#trangchu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+}
+
+/* Thêm CSS cho logo và văn bản để điều chỉnh vị trí và kiểu dáng */
+.section#trangchu .logo-section {
+  max-width: 200px; /* Điều chỉnh kích thước logo */
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.section#trangchu p {
+  font-size: 1.1rem; /* Điều chỉnh kích thước văn bản */
+  line-height: 1.6;
+  margin-bottom: 30px;
+  width: 800px;
+  margin: 0 auto;
+  font-family: 'Inter';
+  font-weight: 500;
+  color: #ffead1;
+}
+
+.section#trangchu .btn {
+  padding: 8px 20px; /* Điều chỉnh kích thước nút */
+  font-size: 1.1rem;
+  margin-top: 20px;
+  border: 3px solid #EDBC81;
+  background-color: #8F0006;
+  color: #EDBC81;
+  border-radius: 20px 5px 20px 5px;
+}
+
+.van-hoa-section {
+  padding: 80px 0;
+  background-color: #f8f9fa; /* Màu nền nhạt */
+}
+
+.van-hoa-section .image-container {
+  text-align: center;
+}
+
+.van-hoa-section .content {
+  padding: 20px;
+}
+
+.van-hoa-section h2 {
+  font-size: 2rem;
+  color: #8F0006;
+  font-family: "Vina Sans", sans-serif;
+  text-align: left;
+}
+
+.van-hoa-section .title {
+  font-size: 4rem;
+  font-weight: 500;
+  color: #8F0006;
+  margin: 10px 0;
+  font-family: "Great Vibes", cursive;
+  text-align: left;
+}
+
+.van-hoa-section .city {
+  font-size: 3rem;
+  color: #8F0006;
+  font-family: "Vina Sans", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.van-hoa-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #8F0006;
+  font-weight: 500;
+}
+
+
+.van-hoa-section .read-more {
+  margin-top: 20px;
+  background-color: transparent;
+  border: #8F0006 2px solid;
+  color: #8F0006;
+  font-weight: 500;
+  border-radius: 20px 5px 20px 5px;
+}
+
+.read-more .fa-arrow-right {
+  color: #8F0006;
+}
+
+.resource {
+  font-style: italic;
+}
+
+.sumenh-section {
+  padding: 80px 0;
+  background-color: #f8f9fa; /* Màu nền nhạt */
+  text-align: center;
+}
+
+.sumenh-section .logo-container {
   margin-bottom: 30px;
 }
 
-.header h1 {
-  color: #333;
-  font-size: 2em;
-}
-
-/* .about, .services {
-  margin-bottom: 40px;
-} */
-
-.about {
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-.about h2 {
-  font-family: "Vina Sans", serif;
-  color: #8F0006; /* Màu chữ */
-  margin-bottom: 15px;
-  font-size: 2.5rem;
-}
-
-.text-muted {
-  font-size: 1.2rem;
-  color: #002ea6;
-  font-weight: 600;
-}
-
-.about ul li {
-  font-size: 1.2rem;
-  color: #002ea6;
-  font-family: "Inter";
-  font-weight: 600;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-}
-
-.hero-image {
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-image img {
-  width: 100%;
+.sumenh-section .logo {
+  max-width: 200px; /* Điều chỉnh kích thước logo */
   height: auto;
-  display: block;
 }
 
-.gioithieu h1 {
-  font-family: "Vina Sans", serif;
+.sumenh-section .title {
+  font-size: 3rem;
+  color: #8F0006;
+  margin-bottom: 20px;
+  font-family: "Vina Sans", sans-serif;
 }
 
-.gioithieu p {
-  font-family: 'Inter';
-  font-size: 18px;
+.sumenh-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #8F0006;
+  max-width: 800px; /* Giới hạn chiều rộng của văn bản */
+  margin: 0 auto 20px;
 }
+
+/*fdfdfd*/
+.thongdiep-section {
+  padding: 60px 0;
+  background-color: #EDBC81;
+  text-align: center;
+  background-image: url('../assets/dangian.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative; /* Cần thiết để định vị lớp phủ */
+}
+
+.thongdiep-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+/* Các CSS khác cho nội dung section */
+.thongdiep-section > * {
+  position: relative; /* Đảm bảo nội dung nằm trên lớp phủ */
+  z-index: 1;
+}
+
+
+.gift-header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.line-decoration {
+  height: 2px;
+  width: 100px;
+  background-color: #ffffff; /* Dark green color for line */
+  margin: 0 auto 15px;
+}
+
+.main-title {
+  color: #ffffff; /* Dark green color */
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-family: "Vina Sans", sans-serif;
+}
+
+.sub-title {
+  color: #ffffff; /* Dark green color */
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Vina Sans", sans-serif;
+}
+
+/* Gift Item Layout */
+.gift-item {
+  display: flex;
+  position: relative;
+  margin-bottom: 70px;
+  align-items: center;
+}
+
+.gift-item-right {
+  flex-direction: row;
+}
+
+.gift-item-left {
+  flex-direction: row-reverse;
+}
+
+/* Gift Content Styling */
+.gift-content {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.gift-title {
+  color: #ffffff; /* Medium green color */
+  font-size: 2rem;
+  font-weight: normal;
+  margin-bottom: 0;
+  font-family: "Vina Sans", sans-serif;
+}
+
+.gift-subtitle {
+  color: #ffffff; /* Medium green color */
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 15px;
+  font-family: "Vina Sans", sans-serif;
+
+}
+
+.gift-description {
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+  font-family: "Inter";
+  font-weight: 500;
+}
+
+/* Gift Image Styling */
+.gift-image {
+  flex: 1;
+  max-width: 45%;
+}
+
+.gift-image img {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .gift-item {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  
+  .gift-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .gift-content {
+    padding: 0 15px;
+  }
+  
+  .gift-accent {
+    position: relative;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 15px;
+    bottom: auto;
+    right: auto;
+    left: auto;
+  }
+  
+  .gift-item-left .gift-accent,
+  .gift-item-right .gift-accent {
+    right: auto;
+    left: auto;
+    bottom: auto;
+  }
+}
+
 
 
 /* Responsive */
+@media (max-width: 992px) {
+  .thongdiep-section .item {
+        margin-bottom: 40px;
+    }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
+  .van-hoa-section .title {
+    font-size: 2.5rem;
   }
 
-  .hero-text {
-    font-size: 2rem; /* Giảm kích thước chữ trên thiết bị nhỏ */
+  .van-hoa-section .city {
+    font-size: 1.8rem;
   }
 
-  .hero-title {
-    font-size: 1rem;
+  .sumenh-section .title {
+    font-size: 2.5rem;
   }
 
-  .image-container img {
-    width: 100%;
-    height: auto;
-  }
-
-  .item-card {
-    margin-bottom: 2rem;
-  }
+  .thongdiep-section .title {
+    font-size: 2rem;
+}
 }

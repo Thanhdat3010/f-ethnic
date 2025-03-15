@@ -14,7 +14,6 @@ function App() {
     <Route path='/' element={<Home/>}/>
     <Route path='/EthnicGroupsShowcase' element={<EthnicGroupsShowcase/>}/>
     <Route path="/ethnic-group/:id" element={<EthnicDetailPage />} />
-    <Route path='/CombinedOCR' element={<CombinedOCR/>} />
     <Route path='/ChatBot' element={<ChatBot/>} />
 
     </Routes>
