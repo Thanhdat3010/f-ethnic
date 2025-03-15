@@ -20,7 +20,7 @@ const MultiLevelNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="menu">
           <Nav className="me-auto custom-nav">
-            <Nav.Link onClick={() => scrollToSection("trangchu")}>
+            <Nav.Link href="/">
               Trang Chủ
             </Nav.Link>
             <Nav.Link onClick={() => scrollToSection("vanhoa")}>

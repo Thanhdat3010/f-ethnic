@@ -196,34 +196,36 @@ const formatBoldText = (text) => {
                 </div>
               ) : (
                 <div className="bot-response">
-                  <div className="thoughts-container">
-                    <div 
-                      className="thoughts-header" 
-                      onClick={() => toggleThoughts(message.id)}
-                    >
-                      <span className="thoughts-title">Quá trình suy nghĩ</span>
-                      <span className={`collapse-icon ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
-                        {collapsedThoughts[message.id] ? '▼' : '▲'}
-                      </span>
+                  {isDeepThinkMode && (
+                    <div className="thoughts-container">
+                      <div 
+                        className="thoughts-header" 
+                        onClick={() => toggleThoughts(message.id)}
+                      >
+                        <span className="thoughts-title">Quá trình suy nghĩ</span>
+                        <span className={`collapse-icon ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
+                          {collapsedThoughts[message.id] ? '▼' : '▲'}
+                        </span>
+                      </div>
+                      <div className={`thoughts-content ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
+                        {message.thinking && !message.thinking.isComplete && (
+                          <div className="thinking-process">
+                            <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.thinking.content) }}></div>
+                            <span className="typing-cursor">|</span>
+                          </div>
+                        )}
+                        {message.thinking && message.thinking.isComplete && message.thoughts && (
+                          <div className="thoughts-container">
+                            {message.thoughts.map((thought, index) => (
+                              <div key={index} className="thinking-process">
+                                <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(thought) }}></div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div className={`thoughts-content ${collapsedThoughts[message.id] ? 'collapsed' : ''}`}>
-                      {message.thinking && !message.thinking.isComplete && (
-                        <div className="thinking-process">
-                          <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.thinking.content) }}></div>
-                          <span className="typing-cursor">|</span>
-                        </div>
-                      )}
-                      {message.thinking && message.thinking.isComplete && message.thoughts && (
-                        <div className="thoughts-container">
-                          {message.thoughts.map((thought, index) => (
-                            <div key={index} className="thinking-process">
-                              <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(thought) }}></div>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
+                  )}
                   {message.finalAnswer && (
                     <div className="message bot-message final-answer">
                       <div className="message-content" dangerouslySetInnerHTML={{ __html: formatBoldText(message.finalAnswer) }}></div>

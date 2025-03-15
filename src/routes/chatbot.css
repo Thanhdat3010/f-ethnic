@@ -5,6 +5,7 @@
     background-color: #ffffff;
     color: #1a1a1a;
     overflow-y: auto;
+    margin-top: 60px;
   }
   
   .chat-interface {
