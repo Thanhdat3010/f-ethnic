@@ -90,7 +90,7 @@ const EthnicGroupsShowcase = () => {
               style={{ maxWidth: '80px' }}
             />
           </div>
-          <h1 className="text-center mb-5 fw-bold" style={{ color: '#8F0006' }}>
+          <h1 className="text-center mb-5 fw-bold" style={{ color: '#8F0006'}}>
             54 SẮC TỘC
           </h1>
           <div className="row justify-content-center">

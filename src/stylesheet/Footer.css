@@ -1,10 +1,33 @@
 .Footer, i, a {
     background-color: #fff;
-    color: #002ea6;
+    color: #8F0006;
     text-decoration: none;
 
 }
 
-.Footer {
-    border-top: 1px solid #D9d9d9;
-}
+.footer {
+    background-color: #fff; 
+    color: #8F0006; 
+    border-top: 1px solid #8F0006;
+  }
+  
+  .footer-logo {
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-link,
+  .social-link {
+    color: #8F0006;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .footer-logo {
+      width: 80px;
+    }
+  }
