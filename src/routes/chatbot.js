@@ -12,9 +12,16 @@ const ChatBot = () => {
   const [selectedMode, setSelectedMode] = useState('normal');
 
   useEffect(() => {
-    const lastMessage = messages[messages.length - 1];
-    if (lastMessage && (lastMessage.isUser || lastMessage.finalAnswer)) {
-      scrollToBottom();
+    if (messages.length > 0) {
+      const lastMessage = messages[messages.length - 1];
+      if (
+        lastMessage.isUser || 
+        lastMessage.isLoading || 
+        lastMessage.finalAnswer || 
+        (!lastMessage.thinking && lastMessage.text)
+      ) {
+        scrollToBottom();
+      }
     }
   }, [messages]);
 
@@ -40,6 +47,15 @@ const ChatBot = () => {
 
   const handleNormalChat = async (message) => {
     try {
+      // Thêm loading message
+      const loadingId = Date.now();
+      setMessages(prev => [...prev, {
+        id: loadingId,
+        isLoading: true,
+        isUser: false
+      }]);
+      scrollToBottom();
+
       const response = await fetch('http://localhost:5000/chat', {
         method: 'POST',
         headers: {
@@ -49,13 +65,15 @@ const ChatBot = () => {
       });
       
       const data = await response.json();
-      const messageId = Date.now();
       
+      // Xóa loading message và thêm response thật
+      setMessages(prev => prev.filter(msg => msg.id !== loadingId));
       setMessages(prev => [...prev, {
-        id: messageId,
+        id: Date.now(),
         text: data.response,
         isUser: false
       }]);
+      scrollToBottom();
     } catch (error) {
       console.error('Error:', error);
       setMessages(prev => [...prev, {
@@ -64,6 +82,7 @@ const ChatBot = () => {
         isUser: false,
         isError: true
       }]);
+      scrollToBottom();
     }
   };
 
@@ -89,6 +108,7 @@ const ChatBot = () => {
         thoughts: [],
         finalAnswer: null
       }]);
+      scrollToBottom();
 
       const response = await fetch('http://localhost:5000/deep-think', {
         method: 'POST',
@@ -124,6 +144,7 @@ const ChatBot = () => {
                     : msg
                 ));
                 await typeText(data.content, messageId);
+                scrollToBottom();
               } else if (data.type === 'final') {
                 setMessages(prev => prev.map(msg => 
                   msg.id === messageId 
@@ -194,6 +215,14 @@ const formatBoldText = (text) => {
                 <div className="message user-message">
                   <div className="message-content">{message.text}</div>
                 </div>
+              ) : message.isLoading ? (
+                <div className="message bot-message loading">
+                  <div className="loading-indicator">
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                  </div>
+                </div>
               ) : (
                 <div className="bot-response">
                   {isDeepThinkMode && (
@@ -244,6 +273,19 @@ const formatBoldText = (text) => {
         </div>
         
         <form onSubmit={handleSubmit} className="input-container">
+          <div className="input-row">
+            <input
+              type="text"
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              placeholder="Làm thế nào để BVAI có thể giúp?"
+              className="message-input"
+            />
+            <button type="submit" className="send-button">
+              <i className="fas fa-arrow-up"></i>
+            </button>
+          </div>
+
           <div className="mode-selector">
             <button 
               type="button"
@@ -268,18 +310,7 @@ const formatBoldText = (text) => {
               RAG
             </button>
           </div>
-
-          <input
-            type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            placeholder="Làm thế nào để BVAI có thể giúp?"
-            className="message-input"
-          />
-
-          <button type="submit" className="send-button">
-            <i className="fas fa-arrow-up"></i>
-          </button>
+          
         </form>
       </div>
     </div>
