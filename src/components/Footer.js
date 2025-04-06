@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/Logo.svg"; // Thay đổi đường dẫn logo nếu cần
+import logo from "../assets/Logo.png"; // Thay đổi đường dẫn logo nếu cần
 import "../stylesheet/Footer.css";
 import { Link } from "react-scroll"; // Import Link từ react-scroll
 

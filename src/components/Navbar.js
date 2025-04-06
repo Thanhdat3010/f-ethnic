@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from "../assets/Logo.svg";
+import logo from "../assets/Logo.png";
 import "../stylesheet/Navbar.css";
 
 const MultiLevelNavbar = () => {

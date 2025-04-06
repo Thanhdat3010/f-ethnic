@@ -3,7 +3,7 @@ import MultiLevelNavbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import '../stylesheet/Home.css'; 
-import logo from "../assets/Logo.svg";
+import logo from "../assets/Logo.png";
 import vanhoa from "../assets/dantocVietnam.png"
 import tranquy from '../assets/Tranquy.jpg'; 
 import ketnoi from '../assets/ketnoi.jpg'; 
