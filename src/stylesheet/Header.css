@@ -5,6 +5,7 @@
 .header-container {
     min-height: 100vh;
     background-color: #fff;
+    margin-top: 60px;
   }
   
   /* Left section - Image */

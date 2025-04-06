@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../stylesheet/54dantoc.css';
 import MultiLevelNavbar from '../components/Navbar.js';
 import Footer from "../components/Footer.js";
-import logo from "../assets/Logo.svg";
+import logo from "../assets/Logo.png";
 import Header from '../components/Header.js'
 
 const ethnicGroupsData = [
