@@ -1,0 +1,155 @@
+.dich {
+    min-height: 100vh;
+    background-color: #f4e4bc;
+    background-image: linear-gradient(rgba(244, 228, 188, 0.9), rgba(244, 228, 188, 0.9)),
+        url('https://i.imgur.com/placeholder.jpg'); /* Bạn có thể thêm một hình nền họa tiết thổ cẩm Tày */
+}
+
+.dich-container {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff9eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.15);
+    border: 2px solid #8b4513;
+    position: relative;
+}
+
+.dich-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: repeating-linear-gradient(
+        45deg,
+        #8b4513,
+        #8b4513 10px,
+        #d2691e 10px,
+        #d2691e 20px
+    );
+    border-radius: 10px 10px 0 0;
+}
+
+.dich-header {
+    text-align: center;
+    color: #8b4513;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.2);
+    font-family: 'Times New Roman', serif;
+}
+
+.dich-input {
+    margin-bottom: 20px;
+}
+
+.dich-input__textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    border: 2px solid #d2691e;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    resize: vertical;
+    color: #5d4037;
+}
+
+.dich-input__textarea:focus {
+    outline: none;
+    border-color: #8b4513;
+    box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
+}
+
+.dich-button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.dich-button__translate {
+    background-color: #8b4513;
+    color: #fff9eb;
+    border: none;
+    padding: 12px 40px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+}
+
+.dich-button__translate:hover {
+    background-color: #d2691e;
+    transform: translateY(-2px);
+}
+
+.dich-button__translate:disabled {
+    background-color: #d3b17d;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.dich-error {
+    color: #c62828;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+}
+
+.dich-result {
+    margin-top: 30px;
+    position: relative;
+}
+
+.dich-result__header {
+    color: #8b4513;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #d2691e;
+}
+
+.dich-result__content {
+    padding: 20px;
+    border: 2px solid #d2691e;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5d4037;
+    position: relative;
+}
+
+.dich-result__content::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+    .dich-container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .dich-header {
+        font-size: 2rem;
+    }
+}

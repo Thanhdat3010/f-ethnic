@@ -23,6 +23,9 @@ const MultiLevelNavbar = () => {
             <Nav.Link href="/">
               Trang Chủ
             </Nav.Link>
+            <Nav.Link href="Dich">
+              Dịch thuật
+            </Nav.Link>
             <Nav.Link onClick={() => scrollToSection("vanhoa")}>
               Khám Phá Văn Hóa
             </Nav.Link>
