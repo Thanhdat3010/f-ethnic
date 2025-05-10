@@ -17,7 +17,7 @@ function Dich() {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/translate', {
+      const response = await axios.post('http://localhost:5001/translate', {
         text: inputText
       });
       setTranslatedText(response.data.translated);
