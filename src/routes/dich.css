@@ -1,108 +1,123 @@
 .dich {
     min-height: 100vh;
-    background-color: #f4e4bc;
-    background-image: linear-gradient(rgba(244, 228, 188, 0.9), rgba(244, 228, 188, 0.9)),
-        url('https://i.imgur.com/placeholder.jpg'); /* Bạn có thể thêm một hình nền họa tiết thổ cẩm Tày */
+    background: #f8f6f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .dich-container {
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff9eb;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.15);
-    border: 2px solid #8b4513;
-    position: relative;
-}
-
-.dich-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 10px;
-    background: repeating-linear-gradient(
-        45deg,
-        #8b4513,
-        #8b4513 10px,
-        #d2691e 10px,
-        #d2691e 20px
-    );
-    border-radius: 10px 10px 0 0;
+    padding: 48px 32px;
+    max-width: 900px;
+    margin: 56px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(60, 60, 60, 0.09);
+    border: 1.5px solid #ececec;
 }
 
 .dich-header {
     text-align: center;
-    color: #8b4513;
-    margin-bottom: 30px;
+    color: #3d2c13;
+    margin-bottom: 28px;
     font-size: 2.5rem;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(139, 69, 19, 0.2);
-    font-family: 'Times New Roman', serif;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    letter-spacing: 0.5px;
 }
 
-.dich-input {
-    margin-bottom: 20px;
+.dich-translate-boxes {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    justify-content: center;
 }
 
-.dich-input__textarea {
-    width: 100%;
-    height: 150px;
-    padding: 15px;
-    border: 2px solid #d2691e;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #fff;
-    transition: all 0.3s ease;
+.dich-input__textarea,
+.dich-output__textarea {
+    width: 350px;
+    height: 160px;
+    padding: 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 18px;
+    background: #faf9f7;
+    color: #3d2c13;
     resize: vertical;
-    color: #5d4037;
+    transition: border 0.2s;
 }
 
 .dich-input__textarea:focus {
     outline: none;
-    border-color: #8b4513;
-    box-shadow: 0 0 10px rgba(139, 69, 19, 0.2);
+    border-color: #b8a47e;
+    background: #fff;
+}
+
+.dich-output__textarea {
+    background: #f4f2ee;
+    color: #6d5c3d;
+}
+
+.dich-switch-btn {
+    border: none;
+    background: transparent;
+    font-size: 36px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8a47e;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dich-switch-btn:hover {
+    background: #f4f2ee;
+    color: #3d2c13;
 }
 
 .dich-button {
     text-align: center;
-    margin: 20px 0;
+    margin: 32px 0 0 0;
 }
 
 .dich-button__translate {
-    background-color: #8b4513;
-    color: #fff9eb;
+    background: #b8a47e;
+    color: #fff;
     border: none;
-    padding: 12px 40px;
-    font-size: 18px;
-    border-radius: 25px;
+    padding: 16px 60px;
+    font-size: 20px;
+    border-radius: 28px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 1px 4px rgba(60, 60, 60, 0.07);
 }
 
 .dich-button__translate:hover {
-    background-color: #d2691e;
-    transform: translateY(-2px);
+    background: #a08b6a;
+    transform: translateY(-1px) scale(1.03);
 }
 
 .dich-button__translate:disabled {
-    background-color: #d3b17d;
+    background: #e0d7c3;
+    color: #fff;
     cursor: not-allowed;
     transform: none;
 }
 
 .dich-error {
     color: #c62828;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 8px;
-    background-color: #ffebee;
-    border: 1px solid #ffcdd2;
+    padding: 12px;
+    margin: 16px 0 0 0;
+    border-radius: 7px;
+    background: #fff3f3;
+    border: 1px solid #ffd6d6;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .dich-result {
@@ -143,13 +158,19 @@
     opacity: 0.3;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .dich-container {
-        margin: 10px;
-        padding: 20px;
+        max-width: 98vw;
+        padding: 18px 2vw;
     }
-
-    .dich-header {
-        font-size: 2rem;
+    .dich-translate-boxes {
+        flex-direction: column;
+        gap: 18px;
+    }
+    .dich-input__textarea,
+    .dich-output__textarea {
+        width: 98vw;
+        max-width: 98vw;
+        min-width: 0;
     }
 }
