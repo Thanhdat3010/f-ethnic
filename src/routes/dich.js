@@ -43,58 +43,59 @@ function Dich() {
   return (
     <div className="dich">
       <MultiLevelNavbar/>
-      <div className="dich-container">
-        <div style={{marginTop: 60}}>
+      <div className="dich-container dich-elevated">
+        <div className="dich-header-group">
           <h1 className="dich-header">Dịch Tày - Việt / Việt - Tày</h1>
-          
-          <div className="dich-translate-boxes" style={{display: 'flex', alignItems: 'center', gap: 16}}>
+          <p className="dich-subtitle">
+            Công cụ dịch ngôn ngữ Tày ↔ Việt hiện đại, nhanh chóng và chính xác.<br/>
+            Hãy nhập văn bản và trải nghiệm!
+          </p>
+        </div>
+        <div className="dich-translate-boxes">
+          <div className="dich-box">
+            <label className="dich-label">
+              {direction === 'tay2viet' ? "Tiếng Tày" : "Tiếng Việt"}
+            </label>
             <textarea
               className="dich-input__textarea"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
               placeholder={direction === 'tay2viet' ? "Nhập văn bản tiếng Tày..." : "Nhập văn bản tiếng Việt..."}
-              style={{width: 300, height: 120}}
             />
-
-            <button 
-              className="dich-switch-btn"
-              onClick={handleSwitchDirection}
-              style={{
-                border: 'none',
-                background: 'none',
-                fontSize: 28,
-                cursor: 'pointer'
-              }}
-              title="Đổi chiều dịch"
-            >
-              ⇄
-            </button>
-
+          </div>
+          <button 
+            className="dich-switch-btn"
+            onClick={handleSwitchDirection}
+            title="Đổi chiều dịch"
+          >
+            ⇄
+          </button>
+          <div className="dich-box">
+            <label className="dich-label">
+              {direction === 'tay2viet' ? "Tiếng Việt" : "Tiếng Tày"}
+            </label>
             <textarea
               className="dich-output__textarea"
               value={outputText}
               readOnly
               placeholder={direction === 'tay2viet' ? "Bản dịch tiếng Việt..." : "Bản dịch tiếng Tày..."}
-              style={{width: 300, height: 120, background: '#f5f5f5'}}
             />
           </div>
-
-          <div className="dich-button" style={{marginTop: 16}}>
-            <button 
-              className="dich-button__translate"
-              onClick={handleTranslate}
-              disabled={loading || !inputText.trim()}
-            >
-              {loading ? 'Đang dịch...' : 'Dịch'}
-            </button>
-          </div>
-
-          {error && (
-            <div className="dich-error">
-              {error}
-            </div>
-          )}
         </div>
+        <div className="dich-button">
+          <button 
+            className="dich-button__translate"
+            onClick={handleTranslate}
+            disabled={loading || !inputText.trim()}
+          >
+            {loading ? 'Đang dịch...' : 'Dịch'}
+          </button>
+        </div>
+        {error && (
+          <div className="dich-error">
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );
